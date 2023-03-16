@@ -1,0 +1,6 @@
+.codio
+.guides/
+.settings
+symptoms.txt
+result.out
+com/hemebiotech/analytics/*.class
