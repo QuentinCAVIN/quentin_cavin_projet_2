@@ -24,7 +24,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> getSymptoms() { //methode obligatoire qui est dans l'interface, elle renvoie une liste
+	public List<String> getSymptoms() { //methode "obligatoire" qui est dans l'interface, elle renvoie une liste
                                       
 		ArrayList<String> result = new ArrayList<String>(); // on crée une nouvelle liste
 		
@@ -33,8 +33,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath)); 
         //// Création d’un bufferedReader qui utilise le fileReader qui utilise le filepath(=Chemin d'accès)
 				String line = reader.readLine(); // lit la prochaine ligne
-				
-				while (line != null) { // Tant que la ligne n'est pas vide: (Donc la boulce s'arréte si il ya un simple blanc?)
+
+				while (line != null) { // Tant que la ligne n'est pas vide: (Donc la boulce s'arréte si il ya un simple blanc? Non une ligne blanche n'est pas null)
 					result.add(line); // ajoute la ligne à la list result
 					line = reader.readLine(); //lit la prochaine ligne
 
