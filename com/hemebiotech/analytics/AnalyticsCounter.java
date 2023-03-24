@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 
-/
+
 public class AnalyticsCounter {
 
   private ISymptomReader reader;
@@ -56,7 +56,8 @@ public class AnalyticsCounter {
         TreeMap(Map<? extends K,? extends V> m)
 Constructs a new tree map containing the same mappings
  as the given map, ordered according to the natural ordering of its keys.
- Ordre naturel pour moi veux dire par ordre alphabetic.*/ 
+ Ordre naturel pour moi veux dire par ordre alphabetic.
+ Aprés vérif ça fait la différence entre majuscule (avant) et minuscule (après)*/ 
   }
 
 
