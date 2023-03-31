@@ -6,9 +6,13 @@ import java.util.Map;
 
 public class Main {
 
-  public static void main(String[]args){
+  /**
+  * Read a list of symptoms from a text file named "symptoms.txt", count and sort this list 
+  * and finally Write it in a file "result.out"  
+  */
+  public static void main(String[]args) {
 
-    ISymptomReader reader = new ReadSymptomDataFromFile ("symptoms.txt");
+    ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
     ISymptomWriter writer = new WriteSymptomDataToFile();
     AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
 
@@ -16,16 +20,6 @@ public class Main {
     Map<String, Integer> mapSymptoms = analyticsCounter.countSymptoms(listSymptoms);
     Map<String, Integer> mapSymptomsSorted = analyticsCounter.sortSymptoms(mapSymptoms);
     analyticsCounter.writeSymptoms(mapSymptomsSorted);
-
-
-
-
-   // ISymptomWriter writer = new WriteSymptomDataToFile (symptoms, result.out); peut-etre pas en fait
-
-    
-
-    
-
   }
 
 }

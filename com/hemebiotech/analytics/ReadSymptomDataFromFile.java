@@ -8,44 +8,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
- *
+ * Read data from a text file.
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
-	
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) { //Constructeur
-		this.filepath = filepath;
-	}
-	
-	@Override
-	public List<String> getSymptoms() { //methode "obligatoire" qui est dans l'interface, elle renvoie une liste
-                                      
-		ArrayList<String> result = new ArrayList<String>(); // on crée une nouvelle liste
-		
-		if (filepath != null) {// si le fichier n'est pas vide on fait:
-			try {//tant qu'il n'y a pas d'erreur
-				BufferedReader reader = new BufferedReader (new FileReader(filepath)); 
-        //// Création d’un bufferedReader qui utilise le fileReader qui utilise le filepath(=Chemin d'accès)
-				String line = reader.readLine(); // lit la prochaine ligne
+  private String filepath;
 
-				while (line != null) { // Tant que la ligne n'est pas vide: (Donc la boulce s'arréte si il ya un simple blanc? Non une ligne blanche n'est pas null)
-					result.add(line); // ajoute la ligne à la list result
-					line = reader.readLine(); //lit la prochaine ligne
+  /**
+  *Constructor of ReadSymptomDataFromFile.
+  *
+  * @param filepath a full or partial path to file with symptom strings in it, one per line.
+  */
+  public ReadSymptomDataFromFile(String filepath) { 
+    this.filepath = filepath;
+  }
 
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return result;
-	}
+  @Override
+  public List<String> getSymptoms() {
+                                    
+    ArrayList<String> result = new ArrayList<String>();
+
+    if (filepath != null) {
+      try {
+        BufferedReader reader = new BufferedReader(new FileReader(filepath)); 
+        String line = reader.readLine();
+
+        while (line != null) { 
+          result.add(line); 
+          line = reader.readLine(); 
+        }
+
+        reader.close();
+
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return result;
+  }
 
 }
